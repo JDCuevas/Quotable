@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<br>
+	<h1>My Contacts <br><small>{{session.username}}</small></h1>
+	<hr>
+	<a class="btn btn-success" href="/users"> Add Contact </a>
+	<br>
+	<br>
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Username</th>
+			<th>Email</th>
+			<th class="text-center">Remove Contact</th>
+		</tr>
+		{% for contact in contacts %}
+		<tr>
+			<td>{{contact.name}}</td>
+			<td>{{contact.username}}</td>
+			<td>{{contact.email}}</td>
+			<td class="text-center"><a href="remove_contact/{{contact.uid}}" class="btn btn-danger">Remove</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

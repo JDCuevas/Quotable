@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+	<br>
+	<h1>My Collection</h1>
+	<hr>
+
+	<h4>Search</h4>
+	<input class="form-control" id="myInput" type="text" placeholder="First names, last names, keywords or uploaders...">
+	<br>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th class="text-center">Author</th>
+				<th class="text-center">Quote</th>
+				<th class="text-center">Uploded By</th>
+				<th class="text-center">Share With A Friend</th>
+				<th class="text-center">Edit Quote</th>
+				<th class="text-center">Remove From Collection</th>
+				<th class="text-center">Delete</th>
+			</tr>
+		</thead>
+		<tbody id="searchableTable">
+			{% for quote in quotes %}
+			<tr>
+				<td>{{quote.author}}</td>
+				<td><em>{{quote.quote | safe}}</td>
+				<td>{{quote.uploader}}</td>
+				<td class="text-center"><a href="share/{{quote.qid}}" class="btn btn-success">Share</a></td>
+				{% if quote.uploader_id == session.uid %}
+					<td class="text-center"><a href="edit_quote/{{quote.qid}}" class="btn btn-primary">Edit</a></td>
+					<td class="text-center"><a href="delete_quote/{{quote.qid}}" class="btn btn-warning">Remove</a></td>
+					<td class="text-center">
+						<form action="{{url_for('delete_quote', qid=quote.qid)}}" method="POST">
+							<input type="hidden" name="_method" value="DELETE">
+							<input type="submit" value="Delete" class="btn btn-danger">
+						</form>
+					</td>
+				{% else %}
+					<td class="text-center"><a href="edit_quote/{{quote.qid}}" class="btn btn-secondary disabled">Edit</a></td>
+					<td class="text-center"><a href="remove_quote/{{quote.qid}}" class="btn btn-warning">Remove</a></td>
+					<td class="text-center">
+						<form action="{{url_for('delete_quote', qid=quote.qid)}}" method="POST">
+							<input type="hidden" name="_method" value="DELETE" >
+							<input type="submit" value="Delete" class="btn btn-secondary" disabled="disabled">
+						</form>
+					</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<div class="container text-center">
+		<a class="btn btn-success" href="/add_quote"> Add Quote </a>
+	</div>
+
+{% endblock %}

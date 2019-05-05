@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<br>
+	<h1>Shared With Me</h1>
+	<hr>
+	<br>
+
+	<h4>Search</h4>
+	<input class="form-control" id="myInput" type="text" placeholder="First names, last names, keywords or uploaders...">
+	<br>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th class="text-center">Shared By</th>
+				<th class="text-center">Author</th>
+				<th class="text-center">Quote</th>
+				<th class="text-center">Uploded By</th>
+				<th class="text-center">Add To My Collection</th>
+			</tr>
+		</thead>
+		<tbody id="searchableTable">
+			{% for quote in shared %}
+			<tr>
+				<td>{{quote.shared_by}}</td>
+				<td>{{quote.author}}</td>
+				<td><em>{{quote.text | safe}}</em></td>
+				<td>{{quote.uploader}}</td>
+				<td class="text-center"><a href="{{url_for('remove_shared', cid=quote.shared_by_id, qid=quote.qid)}}" class="btn btn-primary">Add</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

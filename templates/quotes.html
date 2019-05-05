@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<br>
+	<h1>Quotes <br><small>Welcome, {{session.username}}</small></h1>
+	<hr>
+
+	<h4>Search</h4>
+	<input class="form-control" id="myInput" type="text" placeholder="First names, last names, keywords or uploaders...">
+	<br>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th class="text-center">Author</th>
+				<th class="text-center">Quote</th>
+				<th class="text-center">Uploded By</th>
+				<th class="text-center">Add To My Collection</th>
+			</tr>
+		</thead>
+		<tbody id="searchableTable">
+			{% for quote in quotes %}
+			<tr>
+				<td>{{quote.author}}</td>
+				<td><em>{{quote.quote | safe}}</em></td>
+				<td>{{quote.uploader}}</td>
+				<td class="text-center"><a href="save_quote/{{quote.qid}}" class="btn btn-primary">Add</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<div class="container text-center">
+		<a class="btn btn-success" href="/add_quote"> Add Quote </a>
+	</div>
+
+{% endblock %}

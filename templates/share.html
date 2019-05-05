@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<br>
+	<h1>Share <br><small>{{session.username}}</small></h1>
+	<hr>
+	<a class="btn btn-success" href="/users"> Add Contact </a>
+	<br>
+	<br>
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Username</th>
+			<th class="text-center">Share Quote</th>
+		</tr>
+		{% for contact in contacts %}
+		<tr>
+			<td>{{contact.name}}</td>
+			<td>{{contact.username}}</td>
+			<td class="text-center"><a href="{{url_for('share_quote', qid=qid, cid=contact.uid)}}" class="btn btn-success" method="POST">Share</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+
+{% endblock %}

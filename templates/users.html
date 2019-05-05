@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<br>
+	<h1>Users</h1>
+	<hr>
+	<br>
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Username</th>
+			<th class="text-center">Add Contact</th>
+		</tr>
+		{% for user in users %}
+			{% if user.uid != session.uid %}
+				<tr>
+					<td>{{user.name}}</td>
+					<td>{{user.username}}</td>
+					<td class="text-center"><a href="add_contact/{{user.uid}}" class="btn btn-primary" method='POST'>Add</a></td>
+				</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	
+	<br>
+	<div class="jumbotron text-center">
+		<img src="https://res-3.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_120,w_120,f_auto,b_white,q_auto:eco/v1397185680/5b34b68467b5d31b877d43b62898f43e.png" class="rounded">
+		<h1>Welcome to Quotable</h1>
+		<p class="lead">Your first and last stop for all your quote-related needs!</p>
+	</div>
+
+	<hr>
+
+	<div class="container">
+		<h2>About Quotable</h2>
+		<p>Quotable is a website designed solely for the purpose of keeping track of your favorite quotes! You'll be able to look up quotes by famous authors, historical figures, actors, your parents (... you get the idea), and if you find some you love, you can add them to your collection for quick and easy look ups in the future. Quotable also allows you to share your wisdom by allowing you to write your own and share with friends!</p>
+		<p> So what are you waiting for? Hurry up and join us at Quotable!</p>
+	</div>
+
+	<hr>
+
+	<div class="container text-center">
+		{% if session.logged_in == NULL %}
+			<a href="/register" class="btn btn-primary btn-lg">Register</a>
+			<a href="/login" class="btn btn-success btn-lg">Login</a>
+		{% endif %}
+	</div>
+
+{% endblock %}

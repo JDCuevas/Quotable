@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	
+	<br>
+	<h1>Add Quote</h1>
+	{% from 'includes/_formhelpers.html' import render_field %}
+	<form method="POST" action="">
+		<div class="form-group">
+			{{ render_field(form.firstName, class="form-control") }}
+		</div>
+		<div class="form-group">
+			{{ render_field(form.lastName, class="form-control") }}
+		</div>
+		<div class="form-group">
+			{{ render_field(form.text, class="form-control", id="editor") }}
+		</div>
+		<p><input class="btn btn-primary" type="submit" value="Submit"></p>
+	</form>
+
+{% endblock %}
