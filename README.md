@@ -5,3 +5,5 @@ Use quotable to share and keep track of your favorite quotes!
 
 ## IMPORTANT UPDATE
 The app went through a complete overhaul, and commit history was lost due to a forced push (git push -f). However, the app is much more complete, and stable now.
+
+### EDIT: Old commits and deprecated code can be found in the deprecated branch
