@@ -2,7 +2,7 @@
 #Databse configuration information
 
 pg_config = {
-    'user' : 'quotable',
-    'passwd' : 'quotable',
+    'user' : 'postgres',
+    'passwd' : 'quotes',
     'dbname' : 'quotable'
 }

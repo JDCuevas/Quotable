@@ -20,7 +20,7 @@
 		<tbody id="searchableTable">
 			{% for quote in quotes %}
 			<tr>
-				<td>{{quote.author}}</td>
+				<td id="quote_author">{{quote.author}}</td>
 				<td><em>{{quote.quote | safe}}</em></td>
 				<td>{{quote.uploader}}</td>
 				<td class="text-center"><a href="save_quote/{{quote.qid}}" class="btn btn-primary">Add</a></td>
@@ -29,8 +29,8 @@
 		</tbody>
 	</table>
 
-	<div class="container text-center">
-		<a class="btn btn-success" href="/add_quote"> Add Quote </a>
+	<div class="container text-center" >
+		<a class="btn btn-success" href="/add_quote" id="add_quote"> Add Quote </a>
 	</div>
 
 {% endblock %}

@@ -23,7 +23,7 @@
 			{% for quote in shared %}
 			<tr>
 				<td>{{quote.shared_by}}</td>
-				<td>{{quote.author}}</td>
+				<td id="author">{{quote.author}}</td>
 				<td><em>{{quote.text | safe}}</em></td>
 				<td>{{quote.uploader}}</td>
 				<td class="text-center"><a href="{{url_for('remove_shared', cid=quote.shared_by_id, qid=quote.qid)}}" class="btn btn-primary">Add</a></td>

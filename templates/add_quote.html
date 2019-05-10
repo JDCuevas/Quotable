@@ -5,17 +5,17 @@
 	<br>
 	<h1>Add Quote</h1>
 	{% from 'includes/_formhelpers.html' import render_field %}
-	<form method="POST" action="">
+	<form method="POST" action="" id="add_quote">
 		<div class="form-group">
-			{{ render_field(form.firstName, class="form-control") }}
+			{{ render_field(form.firstName, class="form-control", id="firstName") }}
 		</div>
 		<div class="form-group">
-			{{ render_field(form.lastName, class="form-control") }}
+			{{ render_field(form.lastName, class="form-control", id="lastName") }}
 		</div>
 		<div class="form-group">
-			{{ render_field(form.text, class="form-control", id="editor") }}
+			{{ render_field(form.text, class="form-control", id="writeQuote") }}
 		</div>
-		<p><input class="btn btn-primary" type="submit" value="Submit"></p>
+		<p><input class="btn btn-primary" type="submit" value="Submit", id="addQuoteSubmit"></p>
 	</form>
 
 {% endblock %}

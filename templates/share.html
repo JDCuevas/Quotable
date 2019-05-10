@@ -17,7 +17,7 @@
 		<tr>
 			<td>{{contact.name}}</td>
 			<td>{{contact.username}}</td>
-			<td class="text-center"><a href="{{url_for('share_quote', qid=qid, cid=contact.uid)}}" class="btn btn-success" method="POST">Share</a></td>
+			<td class="text-center"><a href="{{url_for('share_quote', qid=qid, cid=contact.uid)}}" class="btn btn-success" method="POST" id="shareBtn">Share</a></td>
 		</tr>
 		{% endfor %}
 	</table>

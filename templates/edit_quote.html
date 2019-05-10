@@ -13,9 +13,9 @@
 			{{ render_field(form.lastName, class="form-control") }}
 		</div>
 		<div class="form-group">
-			{{ render_field(form.text, class="form-control", id="editor") }}
+			{{ render_field(form.text, class="form-control", id="writeQuote") }}
 		</div>
-		<p><input class="btn btn-primary" type="submit" value="Submit"></p>
+		<p><input class="btn btn-primary" type="submit" value="Submit", id="editQuoteSubmit"></p>
 	</form>
 
 {% endblock %}
